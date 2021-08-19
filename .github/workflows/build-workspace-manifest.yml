@@ -37,8 +37,10 @@ jobs:
           pip install -r ${{ env.MANIFEST_BUILD_SCRIPT_DIR }}/requirements.txt
           python ${{ env.MANIFEST_BUILD_SCRIPT_DIR }}/${{ env.MANIFEST_BUILD_SCRIPT_NAME }}
 
-      - name: Upload workspace manifest
-        uses: actions/upload-artifact@v2
+      - uses: BetaHuhn/do-spaces-action@v2
         with:
-          name: workspace-manifest
-          path: ${{ env.MANIFEST_ARTIFACT_PATH }}/${{ env.MANIFEST_ARTIFACT_NAME }}
+          access_key: ${{ secrets.SPACES_ACCESS_KEY}}
+          secret_key: ${{ secrets.SPACES_SECRET_KEY }}
+          space_name: ${{ secrets.SPACE_NAME }}
+          space_region: ${{ secrets.SPACE_REGION }}
+          source: ${{ env.MANIFEST_ARTIFACT_PATH }}/${{ env.MANIFEST_ARTIFACT_NAME }}
