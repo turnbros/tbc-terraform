@@ -12,10 +12,10 @@ on:
 
 env:
   PYTHON_VERSION: 3.9
-  MANIFEST_BUILD_SCRIPT_DIR: .github/scripts/
+  MANIFEST_BUILD_SCRIPT_DIR: .github/scripts
   MANIFEST_BUILD_SCRIPT_NAME: manifest_builder.py
   MANIFEST_ARTIFACT_NAME: workspace-manifest.json
-  MANIFEST_ARTIFACT_PATH: dist/
+  MANIFEST_ARTIFACT_PATH: dist
   WORKSPACE_MODULE_DIR: workspace/modules
 jobs:
   build:
