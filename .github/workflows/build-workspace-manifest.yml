@@ -40,8 +40,5 @@ jobs:
       - name: Upload workspace manifest
         uses: actions/upload-artifact@v2
         with:
-          name: ${{ env.MANIFEST_ARTIFACT_NAME }}
-          path: ${{ env.MANIFEST_ARTIFACT_PATH }}
-
-# /home/runner/work/tbc-terraform/tbc-terraform/venv/bin/python
-# /home/runner/work/tbc-terraform/tbc-terraform/.github/scripts/manifest_builder.py
+          name: workspace-manifest
+          path: ${{ env.MANIFEST_ARTIFACT_PATH }}/${{ env.MANIFEST_ARTIFACT_NAME }}
