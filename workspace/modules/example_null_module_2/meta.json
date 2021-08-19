@@ -1,0 +1,24 @@
+{
+  "name": "example_module_2",
+  "title": "Example Module 2",
+  "variables": {
+    "value_a": {
+      "type": "string",
+      "name": "Value A",
+      "description": "",
+      "default": "default_a"
+    },
+    "value_b": {
+      "type": "string",
+      "name": "Value B",
+      "description": "",
+      "default": "default_b"
+    },
+    "value_c": {
+      "type": "string",
+      "name": "Value C",
+      "description": "",
+      "default": "default_c"
+    }
+  }
+}

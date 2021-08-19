@@ -1,6 +1,4 @@
-variable "value_foo" {}
-variable "value_bar" {}
-variable "value_baz" {}
+
 
 resource "null_resource" "example_module_resource_foo" {
   provisioner "local-exec" {
@@ -17,3 +15,4 @@ resource "null_resource" "example_module_resource_baz" {
     command = "echo 'Value BAZ: ${var.value_baz}'"
   }
 }
+

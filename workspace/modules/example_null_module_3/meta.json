@@ -1,0 +1,24 @@
+{
+  "name": "example_module_3",
+  "title": "Example Module 3",
+  "variables": {
+    "value_foo": {
+      "type": "string",
+      "name": "Value Foo",
+      "description": "",
+      "default": "default_foo"
+    },
+    "value_bar": {
+      "type": "string",
+      "name": "Value Bar",
+      "description": "",
+      "default": "default_bar"
+    },
+    "value_baz": {
+      "type": "string",
+      "name": "Value Baz",
+      "description": "",
+      "default": "default_baz"
+    }
+  }
+}

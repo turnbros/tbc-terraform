@@ -1,6 +1,4 @@
-variable "value_1" {}
-variable "value_2" {}
-variable "value_3" {}
+
 
 resource "null_resource" "example_module_resource_1" {
   provisioner "local-exec" {

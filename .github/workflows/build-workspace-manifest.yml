@@ -1,0 +1,44 @@
+name: Build Tenant Workspace Variable Manifest
+on:
+  push:
+    # Publish `main` as Docker `latest` image.
+    branches:
+      - main
+    # Publish `v1.2.3` tags as releases.
+    tags:
+      - v*
+  # Run tests for any PRs.
+  pull_request:
+
+env:
+  PYTHON_VERSION: 3.9
+  MANIFEST_BUILD_SCRIPT_DIR: .github/scripts/
+  MANIFEST_BUILD_SCRIPT_NAME: manifest_builder.py
+  MANIFEST_ARTIFACT_NAME: workspace-manifest.json
+  MANIFEST_ARTIFACT_PATH: dist/
+  WORKSPACE_MODULE_DIR: workspace/modules
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push'
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Set up Python ${{ env.PYTHON_VERSION }}
+        uses: actions/setup-python@v2
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+
+      - name: Build the workspace manifest
+        run: |
+          pip install virtualenv
+          virtualenv venv
+          source venv/bin/activate
+          pip -r install ${{ env.MANIFEST_BUILD_SCRIPT_DIR }}/requirements.txt
+          python ${{ env.MANIFEST_BUILD_SCRIPT_DIR }}/${{ env.MANIFEST_BUILD_SCRIPT_NAME }]
+
+      - name: Upload workspace manifest
+        uses: actions/upload-artifact@v2
+        with:
+          name: ${{ env.MANIFEST_ARTIFACT_NAME }}
+          path: ${{ env.MANIFEST_ARTIFACT_PATH }}
