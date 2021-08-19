@@ -30,12 +30,12 @@ jobs:
           python-version: ${{ env.PYTHON_VERSION }}
 
       - name: Build the workspace manifest
-        run: 
+        run: |
           pip install virtualenv
           virtualenv venv
           source venv/bin/activate
           pip -r install ${{ env.MANIFEST_BUILD_SCRIPT_DIR }}/requirements.txt
-          python ${{ env.MANIFEST_BUILD_SCRIPT_DIR }}/${{ env.MANIFEST_BUILD_SCRIPT_NAME }]
+          python ${{ env.MANIFEST_BUILD_SCRIPT_DIR }}/${{ env.MANIFEST_BUILD_SCRIPT_NAME }}]
 
       - name: Upload workspace manifest
         uses: actions/upload-artifact@v2
