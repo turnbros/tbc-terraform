@@ -14,7 +14,7 @@ env:
   IMAGE_NAME: tbc-tf-workspace
 
 jobs:
-  build:
+  build-workspace-image:
     runs-on: ubuntu-latest
     if: github.event_name == 'push'
     steps:

@@ -18,7 +18,7 @@ env:
   MANIFEST_ARTIFACT_PATH: dist
   WORKSPACE_MODULE_DIR: workspace/modules
 jobs:
-  build:
+  build-workspace-manifest:
     runs-on: ubuntu-latest
     if: github.event_name == 'push'
     steps:
@@ -35,7 +35,7 @@ jobs:
           virtualenv venv
           source venv/bin/activate
           pip install -r ${{ env.MANIFEST_BUILD_SCRIPT_DIR }}/requirements.txt
-          python ${{ env.MANIFEST_BUILD_SCRIPT_DIR }}/${{ env.MANIFEST_BUILD_SCRIPT_NAME }}]
+          python ${{ env.MANIFEST_BUILD_SCRIPT_DIR }}/${{ env.MANIFEST_BUILD_SCRIPT_NAME }}
 
       - name: Upload workspace manifest
         uses: actions/upload-artifact@v2
