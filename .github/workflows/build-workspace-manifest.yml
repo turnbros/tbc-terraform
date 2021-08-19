@@ -34,7 +34,7 @@ jobs:
           pip install virtualenv
           virtualenv venv
           source venv/bin/activate
-          pip -r install ${{ env.MANIFEST_BUILD_SCRIPT_DIR }}/requirements.txt
+          pip install -r ${{ env.MANIFEST_BUILD_SCRIPT_DIR }}/requirements.txt
           python ${{ env.MANIFEST_BUILD_SCRIPT_DIR }}/${{ env.MANIFEST_BUILD_SCRIPT_NAME }}]
 
       - name: Upload workspace manifest
