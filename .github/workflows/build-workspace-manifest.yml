@@ -30,7 +30,7 @@ jobs:
           python-version: ${{ env.PYTHON_VERSION }}
 
       - name: Build the workspace manifest
-        run: |
+        run: 
           pip install virtualenv
           virtualenv venv
           source venv/bin/activate
