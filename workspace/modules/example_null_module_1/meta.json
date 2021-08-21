@@ -1,6 +1,10 @@
 {
-  "name": "example_module_1",
+  "name": "example_null_module_1",
   "title": "Example Module 1",
+  "index": 1,
+  "icon": "fa fa-first-order",
+  "description": "The first example resource module that just creates null resources.",
+  "outputs": {},
   "variables": {
     "value_1": {
       "type": "string",
