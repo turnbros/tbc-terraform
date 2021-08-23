@@ -1,7 +1,7 @@
 {
   "name": "example_null_module_2",
   "title": "Example Module 2",
-  "index": 1,
+  "index": 2,
   "icon": "fa fa-space-shuttle",
   "description": "The second example resource module that just creates null resources.",
   "outputs": {},
