@@ -9,19 +9,19 @@
     "value_a": {
       "type": "string",
       "name": "Value A",
-      "description": "",
+      "description": "The A value required by the module",
       "default": "default_a"
     },
     "value_b": {
       "type": "string",
       "name": "Value B",
-      "description": "",
+      "description": "B value needed by the module",
       "default": "default_b"
     },
     "value_c": {
       "type": "string",
       "name": "Value C",
-      "description": "",
+      "description": "The final module input value",
       "default": "default_c"
     }
   }

@@ -9,19 +9,19 @@
     "value_1": {
       "type": "string",
       "name": "Value 1",
-      "description": "",
+      "description": "The first value required by the module",
       "default": "default_1"
     },
     "value_2": {
       "type": "string",
       "name": "Value 2",
-      "description": "",
+      "description": "Second value required by the module",
       "default": "default_1"
     },
     "value_3": {
       "type": "string",
       "name": "Value 3",
-      "description": "",
+      "description": "The last value required by the module",
       "default": "default_1"
     }
   }

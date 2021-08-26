@@ -9,19 +9,19 @@
     "value_foo": {
       "type": "string",
       "name": "Value Foo",
-      "description": "",
+      "description": "Value for variable input FOO",
       "default": "default_foo"
     },
     "value_bar": {
       "type": "string",
       "name": "Value Bar",
-      "description": "",
+      "description": "Second value for BAR",
       "default": "default_bar"
     },
     "value_baz": {
       "type": "string",
       "name": "Value Baz",
-      "description": "",
+      "description": "Defines the variable BAZ",
       "default": "default_baz"
     }
   }
