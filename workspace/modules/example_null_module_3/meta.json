@@ -4,25 +4,28 @@
   "index": 3,
   "icon": "fa fa-tree",
   "description": "The third example resource module that just creates null resources.",
-  "outputs": {},
-  "variables": {
-    "value_foo": {
+  "outputs": [],
+  "variables": [
+    {
       "type": "string",
-      "name": "Value Foo",
+      "name": "value_foo",
+      "title": "Value Foo",
       "description": "Value for variable input FOO",
       "default": "default_foo"
     },
-    "value_bar": {
+    {
       "type": "string",
-      "name": "Value Bar",
+      "name": "value_bar",
+      "title": "Value Bar",
       "description": "Second value for BAR",
       "default": "default_bar"
     },
-    "value_baz": {
+    {
       "type": "string",
-      "name": "Value Baz",
+      "name": "value_baz",
+      "title": "Value Baz",
       "description": "Defines the variable BAZ",
       "default": "default_baz"
     }
-  }
+  ]
 }

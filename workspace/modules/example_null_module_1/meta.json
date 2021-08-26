@@ -4,25 +4,28 @@
   "index": 1,
   "icon": "fa fa-first-order",
   "description": "The first example resource module that just creates null resources.",
-  "outputs": {},
-  "variables": {
-    "value_1": {
+  "outputs": [],
+  "variables": [
+    {
       "type": "string",
-      "name": "Value 1",
+      "name": "value_1",
+      "title": "Value 1",
       "description": "The first value required by the module",
       "default": "default_1"
     },
-    "value_2": {
+    {
       "type": "string",
-      "name": "Value 2",
+      "name": "value_2",
+      "title": "Value 2",
       "description": "Second value required by the module",
       "default": "default_1"
     },
-    "value_3": {
+    {
       "type": "string",
-      "name": "Value 3",
+      "name": "value_3",
+      "title": "Value 3",
       "description": "The last value required by the module",
       "default": "default_1"
     }
-  }
+  ]
 }

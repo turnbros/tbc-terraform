@@ -4,25 +4,28 @@
   "index": 2,
   "icon": "fa fa-space-shuttle",
   "description": "The second example resource module that just creates null resources.",
-  "outputs": {},
-  "variables": {
-    "value_a": {
+  "outputs": [],
+  "variables": [
+    {
       "type": "string",
-      "name": "Value A",
+      "name": "value_a",
+      "title": "Value A",
       "description": "The A value required by the module",
       "default": "default_a"
     },
-    "value_b": {
+    {
       "type": "string",
-      "name": "Value B",
+      "name": "value_b",
+      "title": "Value B",
       "description": "B value needed by the module",
       "default": "default_b"
     },
-    "value_c": {
+    {
       "type": "string",
-      "name": "Value C",
+      "name": "value_c",
+      "title": "Value C",
       "description": "The final module input value",
       "default": "default_c"
     }
-  }
+  ]
 }
