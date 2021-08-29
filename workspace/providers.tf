@@ -6,7 +6,13 @@ terraform {
 }
 
 provider "kubernetes" {
-  # KUBE_HOST
-  # KUBE_TOKEN
-  # KUBE_CLUSTER_CA_CERT_DATA
+  host = var.kube_host
+  cluster_ca_certificate = base64decode(var.kube_cluster_ca_cert)
+  client_key = base64decode(var.kube_client_key)
+  client_certificate = base64decode(var.kube_client_cert)
 }
+
+variable "kube_host" {}
+variable "kube_cluster_ca_cert" {}
+variable "kube_client_key" {}
+variable "kube_client_cert" {}
