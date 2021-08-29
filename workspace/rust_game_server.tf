@@ -6,9 +6,9 @@ module "rust_game_server" {
   tenant_namespace = module.tenant_configuration.namespace_name
   #rust_rcon_password = ""
 
-  rust_server_port = 30000
-  rust_rcon_port = 30001
-  rust_app_port = 30002
+  rust_server_port = 28015
+  rust_rcon_port = 28016
+  rust_app_port = 28082
 
   rust_branch = contains(keys(each.value["parameters"]), "rust_branch") ? each.value["parameters"]["rust_branch"] : null
   rust_rcon_web = contains(keys(each.value["parameters"]), "rust_rcon_web") ? each.value["parameters"]["rust_rcon_web"] : null
