@@ -10,7 +10,7 @@ tbc_terraform_manifest = {}
 for module_dir in os.listdir(modules_path):
 
     # The meta/icon.svg and meta/meta.json file paths
-    icon_path = f"{modules_path}/{module_dir}/meta/logo.svg"
+    icon_path = f"{modules_path}/{module_dir}/meta/icon.svg"
     meta_path = f"{modules_path}/{module_dir}/meta/meta.json"
 
     # THe default icon svg
