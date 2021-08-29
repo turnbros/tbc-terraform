@@ -3,7 +3,7 @@ module "rust_game_server" {
   for_each  = local.tenant_modules["rust_game_server"]
 
   tenant_name = var.tenant_name
-  tenant_namespace = kubernetes_namespace.tenant_namespace.metadata.0.name
+  tenant_namespace = module.tenant_configuration.namespace_name
   #rust_rcon_password = ""
 
   rust_server_port = 28015

@@ -1,3 +1,8 @@
+module "tenant_configuration" {
+  source = "./tenant_configuration"
+  tenant_name = var.tenant_name
+}
+
 module "example_null_module_1" {
   source   = "./modules/example_null_module_1"
   for_each = local.tenant_modules["example_null_module_1"]
