@@ -1,5 +1,5 @@
 module "rust_game_server" {
-  source    = "./modules/rust-game-server"
+  source    = "./modules/rust_game_server"
   for_each  = local.tenant_modules["rust_game_server"]
 
   tenant_name = var.tenant_name
