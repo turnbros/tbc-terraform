@@ -87,8 +87,8 @@ resource "kubernetes_deployment" "rust_deployment" {
             name = "RUST_RCON_PASSWORD"
             value_from {
               secret_key_ref {
-                key  = kubernetes_secret.rcon_password.metadata.0.name
-                name = "rcon_password"
+                name = kubernetes_secret.rcon_password.metadata.0.name
+                key = "rcon-password"
               }
             }
           }
