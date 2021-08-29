@@ -1,5 +1,5 @@
 data "http" "tenant_resources" {
-  url = "${var.tbc_api_endpoint}/tenant/${var.tenant_name}/workspace/variables"
+  url = "${var.tbc_api_endpoint}/tenants/${var.tenant_name}/workspace/variables"
   request_headers = {
     Accept = "application/json"
   }
