@@ -1,0 +1,94 @@
+{
+  "name": "rust-game-server",
+  "title": "Rust Server",
+  "index": 3,
+  "icon": "fa fa-gamepad",
+  "description": "A vanilla Rust server with metrics.",
+  "outputs": [],
+  "variables": [
+        {
+            "name": "rust_server_name",
+            "type": "string",
+            "description": "The publicly visible server name",
+            "default": "Rust Server [DOCKER]"
+        },
+        {
+            "name": "rust_server_startup_arguments",
+            "type": "string",
+            "description": "",
+            "default": "-batchmode -load -nographics +server.secure 1"
+        },
+        {
+            "name": "rust_server_identity",
+            "type": "string",
+            "description": "Mainly used for the name of the save directory",
+            "default": "docker"
+        },
+        {
+            "name": "rust_server_seed",
+            "type": "number",
+            "description": "The server map seed, must be an integer",
+            "default": "null"
+        },
+        {
+            "name": "rust_server_worldsize",
+            "type": "number",
+            "description": "The map size, must be an integer",
+            "default": 4500
+        },
+        {
+            "name": "rust_server_maxplayers",
+            "type": "number",
+            "description": "Maximum players on the server, must be an integer",
+            "default": 100
+        },
+        {
+            "name": "rust_server_description",
+            "type": "string",
+            "description": "The publicly visible server description",
+            "default": "This is a Rust server running inside a Docker container!"
+        },
+        {
+            "name": "rust_server_url",
+            "type": "string",
+            "description": "The publicly visible server website",
+            "default": "https://hub.docker.com/r/didstopia/rust-server/"
+        },
+        {
+            "name": "rust_server_banner_url",
+            "type": "string",
+            "description": "The publicly visible server banner image URL",
+            "default": ""
+        },
+        {
+            "name": "rust_server_save_interval",
+            "type": "number",
+            "description": "Amount of seconds between automatic saves.",
+            "default": 600
+        },
+        {
+            "name": "rust_rcon_web",
+            "type": "number",
+            "description": "Set to 1 or 0 to enable or disable the web-based RCON server",
+            "default": 1
+        },
+        {
+            "name": "rust_branch",
+            "type": "string",
+            "description": "Sets the branch argument to use, eg. set to `-beta prerelease` for the prerelease branch",
+            "default": "public"
+        },
+        {
+            "name": "rust_update_checking",
+            "type": "number",
+            "description": "Set to 1 to enable fully automatic update checking, notifying players and restarting to install updates",
+            "default": 0
+        },
+        {
+            "name": "rust_update_branch",
+            "type": "string",
+            "description": "Set to match the branch that you want to use for updating, ie. `prerelease` or `public`, but do not specify arguments like `-beta`",
+            "default": "public"
+        }
+  ]
+}

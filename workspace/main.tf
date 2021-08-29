@@ -19,11 +19,3 @@ module "example_null_module_3" {
   value_bar = each.value["parameters"]["value_bar"]
   value_baz = each.value["parameters"]["value_baz"]
 }
-locals {
-  tenant_params = jsondecode(data.http.tenant_resources.body)
-  tenant_modules = {
-    example_null_module_1 = contains(keys(local.tenant_params), "example_null_module_1") ? local.tenant_params["example_null_module_1"] : {}
-    example_null_module_2 = contains(keys(local.tenant_params), "example_null_module_2") ? local.tenant_params["example_null_module_2"] : {}
-    example_null_module_3 = contains(keys(local.tenant_params), "example_null_module_3") ? local.tenant_params["example_null_module_3"] : {}
-  }
-}

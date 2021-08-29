@@ -2,5 +2,7 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/workspace/modules/rust-game-server" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/workspace/modules/terraform-kubernetes-rust-game" vcs="Git" />
   </component>
 </project>

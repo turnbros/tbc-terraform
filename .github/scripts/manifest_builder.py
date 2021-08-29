@@ -10,7 +10,7 @@ tbc_terraform_manifest = {}
 for module_dir in os.listdir(modules_path):
 
     # Load the module manifest from the meta.json file.
-    with open(f"{modules_path}/{module_dir}/meta.json", 'r') as fp:
+    with open(f"{modules_path}/{module_dir}/meta/meta.json", 'r') as fp:
         module_manifest = json.load(fp)
 
     # This is where we'll load up things like input variable validation

@@ -1,0 +1,17 @@
+{
+  "name": "minecraft-game-server",
+  "title": "Minecraft: Java Edition server",
+  "index": 3,
+  "icon": "fa fa-gamepad",
+  "description": "Prepare for an adventure of limitless possibilities as you build, mine, battle mobs, and explore the ever-changing Minecraft landscape.",
+  "outputs": [],
+  "variables": [
+    {
+      "type": "string",
+      "name": "value_foo",
+      "title": "Value Foo",
+      "description": "Value for variable input FOO",
+      "default": "default_foo"
+    }
+  ]
+}

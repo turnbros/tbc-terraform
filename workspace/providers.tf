@@ -2,16 +2,11 @@ terraform {
   # TF_HTTP_ADDRESS
   # TF_HTTP_LOCK_ADDRESS
   # TF_HTTP_UNLOCK_ADDRESS
-  backend "http" {
-#    address        = "http://192.168.1.206:8444/tenant/test_tenant_2/workspace/state"
-#    lock_address   = "http://192.168.1.206:8444/tenant/test_tenant_2/workspace/state"
-#    unlock_address = "http://192.168.1.206:8444/tenant/test_tenant_2/workspace/state"
-  }
+  backend "http" {}
 }
 
-data "http" "tenant_resources" {
-  url = "${var.tbc_api_endpoint}/tenant/${var.tenant_name}/workspace/variables"
-  request_headers = {
-    Accept = "application/json"
-  }
+provider "kubernetes" {
+  # KUBE_HOST
+  # KUBE_TOKEN
+  # KUBE_CLUSTER_CA_CERT_DATA
 }
