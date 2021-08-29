@@ -1,6 +1,6 @@
 resource "kubernetes_secret" "rcon_password" {
   metadata {
-    name      = "rcon_password"
+    name      = "rcon-password"
     namespace = var.tenant_namespace
   }
   data = {
