@@ -8,7 +8,7 @@ resource "random_integer" "rust_server_seed" {
 }
 locals {
   image             = "didstopia/rust-server:latest"
-  image_pull_policy = "Always"
+  image_pull_policy = "IfNotPresent"
 
   server_name = local.instance_id
 
