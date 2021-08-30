@@ -7,7 +7,7 @@ resource "random_integer" "rust_server_seed" {
   max = 99999
 }
 locals {
-  image             = "didstopia/rust-server:latest"
+  image             = "ghcr.io/turnbros/rust-server/rust_server:latest"
   image_pull_policy = "IfNotPresent"
 
   server_name = local.instance_id
