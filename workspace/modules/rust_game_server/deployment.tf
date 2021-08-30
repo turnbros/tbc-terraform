@@ -22,12 +22,21 @@ resource "kubernetes_deployment" "rust_deployment" {
         }, local.labels)
       }
       spec {
+        volume {
+          name = "data"
+          persistent_volume_claim {
+            claim_name = kubernetes_persistent_volume_claim.rust_volume.metadata.0.name
+          }
+        }
         automount_service_account_token = false
         container {
           name              = local.server_name
           image             = local.image
           image_pull_policy = local.image_pull_policy
-
+          volume_mount {
+            name       = "data"
+            mount_path = "/steamcmd/rust"
+          }
           resources {
             requests = {
               cpu    = local.cpu_request
@@ -88,7 +97,7 @@ resource "kubernetes_deployment" "rust_deployment" {
             value_from {
               secret_key_ref {
                 name = kubernetes_secret.rcon_password.metadata.0.name
-                key = "rcon-password"
+                key  = "rcon-password"
               }
             }
           }
