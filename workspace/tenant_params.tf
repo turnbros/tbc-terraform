@@ -7,11 +7,10 @@ data "http" "tenant_resources" {
 
 locals {
   tenant_params = jsondecode(data.http.tenant_resources.body)
-  tenant_modules = {
-    example_null_module_1 = contains(keys(local.tenant_params), "example_null_module_1") ? local.tenant_params["example_null_module_1"] : {}
-    example_null_module_2 = contains(keys(local.tenant_params), "example_null_module_2") ? local.tenant_params["example_null_module_2"] : {}
-    example_null_module_3 = contains(keys(local.tenant_params), "example_null_module_3") ? local.tenant_params["example_null_module_3"] : {}
-    minecraft_game_server = contains(keys(local.tenant_params), "minecraft_game_server") ? local.tenant_params["minecraft_game_server"] : {}
-    rust_game_server      = contains(keys(local.tenant_params), "rust_game_server") ? tomap(local.tenant_params["rust_game_server"]) : tomap({})
-  }
+
+  example_null_module_1_params = try(length(local.tenant_params["example_null_module_1"]) > 0 ? local.tenant_params["example_null_module_1"] : tolist(false), [])
+  example_null_module_2_params = try(length(local.tenant_params["example_null_module_2"]) > 0 ? local.tenant_params["example_null_module_2"] : tolist(false), [])
+  example_null_module_3_params = try(length(local.tenant_params["example_null_module_3"]) > 0 ? local.tenant_params["example_null_module_3"] : tolist(false), [])
+  minecraft_game_server_params = try(length(local.tenant_params["minecraft_game_server"]) > 0 ? local.tenant_params["minecraft_game_server"] : tolist(false), [])
+  rust_game_server_params      = try(length(local.tenant_params["rust_game_server"]) > 0 ? local.tenant_params["rust_game_server"] : tolist(false), [])
 }

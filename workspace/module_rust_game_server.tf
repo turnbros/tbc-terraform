@@ -1,10 +1,9 @@
 module "rust_game_server" {
   source   = "./modules/rust_game_server"
-  for_each = local.tenant_modules["rust_game_server"]
+  for_each = { for instance in local.rust_game_server_params : instance["name"] => instance }
 
   tenant_name      = var.tenant_name
   tenant_namespace = module.tenant_configuration.namespace_name
-  #rust_rcon_password = ""
 
   rust_server_port = 28015
   rust_rcon_port   = 28016
