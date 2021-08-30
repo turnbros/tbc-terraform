@@ -1,6 +1,7 @@
 venv/
 .terraform
 secrets.tfvars
+workspace/secrets.tfvars
 
 **/.terraform
 
