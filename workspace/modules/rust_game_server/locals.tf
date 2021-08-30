@@ -17,7 +17,11 @@ locals {
   cpu_limit      = "2000m"
   memory_limit   = "6144Mi"
 
-  rust_start_mode           = 1
+  # -- RUST_START_MODE --
+  # 0 -> Installs or updates, once done it starts.
+  # 1 -> Installs or updates, once done it exits.
+  # 2 -> Installs, once done it starts.
+  rust_start_mode           = 0
   rust_oxide_enabled        = 1
   rust_oxide_update_on_boot = 1
 
