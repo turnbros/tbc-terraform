@@ -13,7 +13,7 @@ resource "kubernetes_persistent_volume_claim" "rust_volume" {
     access_modes       = ["ReadWriteMany"]
     resources {
       requests = {
-        storage = "6Gi"
+        storage = "7Gi"
       }
     }
   }
