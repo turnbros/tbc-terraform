@@ -12,6 +12,6 @@ locals {
     example_null_module_2 = contains(keys(local.tenant_params), "example_null_module_2") ? local.tenant_params["example_null_module_2"] : {}
     example_null_module_3 = contains(keys(local.tenant_params), "example_null_module_3") ? local.tenant_params["example_null_module_3"] : {}
     minecraft_game_server = contains(keys(local.tenant_params), "minecraft_game_server") ? local.tenant_params["minecraft_game_server"] : {}
-    rust_game_server = contains(keys(local.tenant_params), "rust_game_server") ? local.tenant_params["rust_game_server"] : {}
+    rust_game_server      = contains(keys(local.tenant_params), "rust_game_server") ? tomap(local.tenant_params["rust_game_server"]) : tomap({})
   }
 }
