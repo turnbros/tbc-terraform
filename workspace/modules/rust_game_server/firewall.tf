@@ -6,22 +6,9 @@ locals {
   port_list = distinct(kubernetes_service.rust_server.spec[0].port.*.node_port)
 }
 
-resource "opnsense_firewall_alias_util" "rust_server_port_alias_0" {
+resource "opnsense_firewall_alias" "tenant_firewall_alias" {
   name    = var.nodeport_alias_name
-  address = local.port_list[0]
-}
-
-resource "opnsense_firewall_alias_util" "rust_server_port_alias_1" {
-  name    = var.nodeport_alias_name
-  address = local.port_list[1]
-}
-
-resource "opnsense_firewall_alias_util" "rust_server_port_alias_2" {
-  name    = var.nodeport_alias_name
-  address = local.port_list[2]
-}
-
-resource "opnsense_firewall_alias_util" "rust_server_port_alias_3" {
-  name    = var.nodeport_alias_name
-  address = local.port_list[3]
+  enabled = true
+  type = "port"
+  content = toset(local.port_list)
 }
