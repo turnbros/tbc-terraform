@@ -4,6 +4,7 @@ module "rust_game_server" {
 
   tenant_name      = var.tenant_name
   tenant_namespace = module.tenant_configuration.namespace_name
+  nodeport_alias_name = var.nodeport_alias_name
 
   rust_server_port = 28015
   rust_rcon_port   = 28016
