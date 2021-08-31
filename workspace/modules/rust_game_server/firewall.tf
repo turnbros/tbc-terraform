@@ -7,7 +7,7 @@ locals {
 }
 
 resource "opnsense_firewall_alias" "tenant_firewall_alias" {
-  name    = var.nodeport_alias_name
+  name    = "test_alias_name" #var.nodeport_alias_name
   enabled = true
   type = "port"
   content = toset(local.port_list)
