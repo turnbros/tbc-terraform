@@ -14,7 +14,7 @@ variable "tenant_name" {
 variable "tenant_namespace" {
   type = string
 }
-variable "nodeport_alias_name" {
+variable "tenant_firewall_alias_id" {
   type = string
 }
 variable "rust_server_port" {
