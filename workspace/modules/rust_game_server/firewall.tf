@@ -14,7 +14,7 @@ locals {
 
 resource "opnsense_firewall_alias" "tenant_firewall_alias" {
   parent = [var.tenant_firewall_alias_id]
-  name    = "tbc-${random_id.firewall_alias_id.id}"
+  name    = "tbc_${random_id.firewall_alias_id.id}"
   enabled = true
   type = "port"
   description = "${var.tenant_name}"
