@@ -5,6 +5,10 @@ resource "kubernetes_service" "rust_server" {
     labels = merge({
       "app.kubernetes.io/name" : local.server_name,
       "cloud.turnbros.app/tenant" : var.tenant_name
+      "opnsense.turnbros.app/api-secret" : var.cluster_firewall_api_secret_name,
+      "opnsense.turnbros.app/filter-expose" : true,
+      "opnsense.turnbros.app/filter-enabled" : true,
+      "opnsense.turnbros.app/filter-destination-net" : var.cluster_firewall_alias
     }, local.labels)
   }
   spec {

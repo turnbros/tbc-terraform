@@ -14,8 +14,13 @@ variable "tenant_name" {
 variable "tenant_namespace" {
   type = string
 }
-variable "tenant_firewall_alias_id" {
-  type = string
+variable "cluster_firewall_api_secret_name" {
+  type    = string
+  default = "opnsense-device-secret"
+}
+variable "cluster_firewall_alias" {
+  type    = string
+  default = "arroyo-cluster-nodes"
 }
 variable "rust_server_port" {
   type = number
