@@ -19,12 +19,12 @@ variable "cluster_firewall_api_secret_name" {
   default = "opnsense-device-secret"
 }
 variable "cluster_firewall_api_secret_namespace" {
-  type = string
+  type    = string
   default = "default"
 }
 variable "cluster_firewall_external_interface" {
-  type = list(string)
-  default = ['wan']
+  type    = string
+  default = "wan"
 }
 variable "cluster_firewall_alias" {
   type    = string
