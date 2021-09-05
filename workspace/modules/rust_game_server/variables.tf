@@ -18,6 +18,10 @@ variable "cluster_firewall_api_secret_name" {
   type    = string
   default = "opnsense-device-secret"
 }
+variable "cluster_firewall_api_secret_namespace" {
+  type = string
+  default = "default"
+}
 variable "cluster_firewall_alias" {
   type    = string
   default = "arroyo-cluster-nodes"
