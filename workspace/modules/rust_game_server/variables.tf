@@ -22,6 +22,10 @@ variable "cluster_firewall_api_secret_namespace" {
   type = string
   default = "default"
 }
+variable "cluster_firewall_external_interface" {
+  type = list(string)
+  default = ['wan']
+}
 variable "cluster_firewall_alias" {
   type    = string
   default = "arroyo-cluster-nodes"

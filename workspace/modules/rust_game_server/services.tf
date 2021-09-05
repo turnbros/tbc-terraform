@@ -9,7 +9,8 @@ resource "kubernetes_service" "rust_server" {
       "opnsense.turnbros.app/api-secret-namespace" : var.cluster_firewall_api_secret_namespace,
       "opnsense.turnbros.app/filter-expose" : true,
       "opnsense.turnbros.app/filter-enabled" : true,
-      "opnsense.turnbros.app/filter-destination-net" : var.cluster_firewall_alias
+      "opnsense.turnbros.app/filter-destination-net" : var.cluster_firewall_alias,
+      "opnsense.turnbros.app/filter-interface": var.cluster_firewall_external_interface
     }, local.labels)
   }
   spec {
