@@ -16,10 +16,10 @@ variable "tenant_domain" {
   description = "The domain that will be used for this tenants resources"
 }
 variable "nodeport_alias_name" {
-  type = string
+  type        = string
   description = "The name of the Opnsense firewall alias the node ports need to be added to."
 }
 variable "nodeport_alias_uuid" {
-  type = string
+  type        = string
   description = "The UUID that the tenant alias will be parented to."
 }
