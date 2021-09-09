@@ -35,6 +35,8 @@ for module_dir in os.listdir(modules_path):
 
     tbc_terraform_manifest[module_manifest['name']] = module_manifest
 
+
+
 # Get the configured artifact name and directory and construct the full path.
 artifact_name = os.getenv("MANIFEST_ARTIFACT_NAME")
 artifact_directory = os.getenv("MANIFEST_ARTIFACT_PATH")
