@@ -54,7 +54,7 @@ for module_dir in os.listdir(modules_path):
     # Get the configured artifact name and directory and construct the full path.
     artifact_name = os.getenv("MANIFEST_ARTIFACT_NAME")
     artifact_directory = os.getenv("MANIFEST_ARTIFACT_PATH")
-    artifact_path = f"{artifact_directory}/schemas/{module_manifest['name']}/{artifact_name}"
+    artifact_path = f"{artifact_directory}/schemas/modules/{module_manifest['name']}/{artifact_name}"
 
     print(json.dumps(module_properties))
 
