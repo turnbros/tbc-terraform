@@ -22,4 +22,5 @@ ADD entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
 
 WORKDIR /tmp/workspace
+RUN terraform init
 ENTRYPOINT /entrypoint.sh
