@@ -22,10 +22,10 @@ resource "kubernetes_manifest" "rust_server_nodeport_reservation" {
         "cloud.turnbros.app/tenant" = var.tenant_name
       }
       ports = [
-        { name = "server", protocols = ["TCP", "UDP"] },
-        { name = "rcon", protocols = ["TCP"] },
-        { name = "rcon-app", protocols = ["TCP"] },
-        { name = "app", protocols = ["TCP"] }
+        { name = "server", protocols = ["tcp", "udp"] },
+        { name = "rcon", protocols = ["tcp"] },
+        { name = "rcon-app", protocols = ["tcp"] },
+        { name = "app", protocols = ["tcp"] }
       ]
     }
   }
