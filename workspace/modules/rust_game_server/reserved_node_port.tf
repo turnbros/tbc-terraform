@@ -43,9 +43,9 @@ data "kubernetes_service" "rust_server_nodeport_service" {
 }
 
 locals {
-  server_tcp_port = [for port in data.kubernetes_service.rust_server_nodeport_service.spec.ports : port if port["name"] == "server-tcp"]
-  server_udp_port = [for port in data.kubernetes_service.rust_server_nodeport_service.spec.ports : port if port["name"] == "server-udp"]
-  rcon_port       = [for port in data.kubernetes_service.rust_server_nodeport_service.spec.ports : port if port["name"] == "rcon-tcp"]
-  rcon_app_port   = [for port in data.kubernetes_service.rust_server_nodeport_service.spec.ports : port if port["name"] == "rcon-app-tcp"]
-  app_port        = [for port in data.kubernetes_service.rust_server_nodeport_service.spec.ports : port if port["name"] == "app-tcp"]
+  server_tcp_port = [for port in data.kubernetes_service.rust_server_nodeport_service.spec.0.port : port if port["name"] == "server-tcp"]
+  server_udp_port = [for port in data.kubernetes_service.rust_server_nodeport_service.spec.0.port : port if port["name"] == "server-udp"]
+  rcon_port       = [for port in data.kubernetes_service.rust_server_nodeport_service.spec.0.port : port if port["name"] == "rcon-tcp"]
+  rcon_app_port   = [for port in data.kubernetes_service.rust_server_nodeport_service.spec.0.port : port if port["name"] == "rcon-app-tcp"]
+  app_port        = [for port in data.kubernetes_service.rust_server_nodeport_service.spec.0.port : port if port["name"] == "app-tcp"]
 }
