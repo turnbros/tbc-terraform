@@ -28,10 +28,10 @@ resource "kubernetes_manifest" "rust_server_nodeport_reservation" {
         { name = "app", protocols = ["TCP"] }
       ]
     }
-    wait_for = {
-      fields = {
-        "status.conditions[0].reason" = "Successful"
-      }
+  }
+  wait_for = {
+    fields = {
+      "status.conditions[0].reason" = "Successful"
     }
   }
 }
