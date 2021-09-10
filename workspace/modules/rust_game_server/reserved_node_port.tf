@@ -38,7 +38,7 @@ resource "kubernetes_manifest" "rust_server_nodeport_reservation" {
 
 data "kubernetes_service" "rust_server_nodeport_service" {
   metadata {
-    name = kubernetes_manifest.rust_server_nodeport_reservation.manifest.metadata.0.name
+    name = kubernetes_manifest.rust_server_nodeport_reservation.manifest.metadata.name
   }
 }
 
