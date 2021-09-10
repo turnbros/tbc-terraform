@@ -128,31 +128,31 @@ resource "kubernetes_deployment" "rust_deployment" {
 
           env {
             name  = "RUST_SERVER_PORT"
-            value = var.rust_server_port
+            value = local.server_tcp_port["nodePort"]
           }
 
           env {
             name  = "RUST_RCON_PORT"
-            value = var.rust_rcon_port
+            value = local.rcon_port["nodePort"]
           }
 
           env {
             name  = "RUST_APP_PORT"
-            value = var.rust_app_port
+            value = local.rcon_app_port["nodePort"]
           }
 
           port {
             name           = "server-port"
-            container_port = var.rust_server_port
+            container_port = local.server_tcp_port["nodePort"]
           }
 
           port {
             name           = "rcon-port"
-            container_port = var.rust_rcon_port
+            container_port = local.rcon_port["nodePort"]
           }
           port {
             name           = "app-port"
-            container_port = var.rust_app_port
+            container_port = local.rcon_app_port["nodePort"]
           }
 
           #liveness_probe {
