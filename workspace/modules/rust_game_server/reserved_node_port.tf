@@ -28,12 +28,17 @@ resource "kubernetes_manifest" "rust_server_nodeport_reservation" {
         { name = "app", protocols = ["TCP"] }
       ]
     }
+    wait_for = {
+      fields = {
+        "status.type" = "Running"
+      }
+    }
   }
 }
 locals {
-  server_tcp_port = [for index, port in kubernetes_manifest.rust_server_nodeport_reservation.manifest.spec.ports : index if port["name"] == "server-tcp"]
-  server_udp_port = [for index, port in kubernetes_manifest.rust_server_nodeport_reservation.manifest.spec.ports : index if port["name"] == "server-udp"]
-  rcon_port       = [for index, port in kubernetes_manifest.rust_server_nodeport_reservation.manifest.spec.ports : index if port["name"] == "rcon-tcp"]
-  rcon_app_port   = [for index, port in kubernetes_manifest.rust_server_nodeport_reservation.manifest.spec.ports : index if port["name"] == "rcon-app-tcp"]
-  app_port        = [for index, port in kubernetes_manifest.rust_server_nodeport_reservation.manifest.spec.ports : index if port["name"] == "app-tcp"]
+  server_tcp_port = [for port in kubernetes_manifest.rust_server_nodeport_reservation.manifest.spec.ports : port if port["name"] == "server-tcp"]
+  server_udp_port = [for port in kubernetes_manifest.rust_server_nodeport_reservation.manifest.spec.ports : port if port["name"] == "server-udp"]
+  rcon_port       = [for port in kubernetes_manifest.rust_server_nodeport_reservation.manifest.spec.ports : port if port["name"] == "rcon-tcp"]
+  rcon_app_port   = [for port in kubernetes_manifest.rust_server_nodeport_reservation.manifest.spec.ports : port if port["name"] == "rcon-app-tcp"]
+  app_port        = [for port in kubernetes_manifest.rust_server_nodeport_reservation.manifest.spec.ports : port if port["name"] == "app-tcp"]
 }
