@@ -7,7 +7,7 @@ resource "kubernetes_manifest" "rust_server_nodeport_reservation" {
       "namespace" = var.tenant_namespace
     }
     spec = {
-      labels = merge({
+      labels = {
         "app.kubernetes.io/name"                       = local.server_name,
         "cloud.turnbros.app/tenant"                    = var.tenant_name
         "opnsense.turnbros.app/api-secret"             = var.cluster_firewall_api_secret_name,
@@ -16,7 +16,7 @@ resource "kubernetes_manifest" "rust_server_nodeport_reservation" {
         "opnsense.turnbros.app/filter-enabled"         = true,
         "opnsense.turnbros.app/filter-destination-net" = var.cluster_firewall_alias,
         "opnsense.turnbros.app/filter-interface"       = var.cluster_firewall_external_interface
-      }, local.labels)
+      },
       selector = {
         "app.kubernetes.io/name"    = local.server_name,
         "cloud.turnbros.app/tenant" = var.tenant_name
