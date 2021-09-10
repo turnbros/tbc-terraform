@@ -30,7 +30,7 @@ resource "kubernetes_manifest" "rust_server_nodeport_reservation" {
     }
     wait_for = {
       fields = {
-        "status.type" = "Running"
+        "status.conditions[0].reason" = "Successful"
       }
     }
   }
