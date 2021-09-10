@@ -22,5 +22,5 @@ ADD entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
 
 WORKDIR /tmp/workspace
-RUN terraform init
+RUN terraform init -backend=false
 ENTRYPOINT /entrypoint.sh
