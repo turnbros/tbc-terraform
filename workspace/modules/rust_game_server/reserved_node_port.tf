@@ -17,6 +17,9 @@ resource "kubernetes_manifest" "rust_server_nodeport_reservation" {
         "opnsense.turnbros.app/filter-destination-net" = var.cluster_firewall_alias,
         "opnsense.turnbros.app/filter-interface"       = var.cluster_firewall_external_interface
       },
+      annotations = {
+        foo = "bar"
+      },
       selector = {
         "app.kubernetes.io/name"    = local.server_name,
         "cloud.turnbros.app/tenant" = var.tenant_name
