@@ -6,5 +6,3 @@ provider "kubernetes" {
   client_key             = base64decode(var.kube_client_key)
   client_certificate     = base64decode(var.kube_client_cert)
 }
-
-provider "opnsense" {}
