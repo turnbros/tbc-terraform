@@ -2,6 +2,8 @@ venv/
 .terraform
 secrets.tfvars
 workspace/secrets.tfvars
+*.ignore
+*.ignore.*
 
 **/.terraform
 
