@@ -55,7 +55,8 @@ f.write(json.dumps(tbc_terraform_manifest))
 f.close()
 
 # Make sure the path exists and write the manifest file
-os.makedirs(os.path.dirname(f"{artifact_directory}/manifest-categories.json"), exist_ok=True)
-f = open(artifact_path, "w")
+category_artifact_path = f"{artifact_directory}/manifest-categories.json"
+os.makedirs(os.path.dirname(category_artifact_path), exist_ok=True)
+f = open(category_artifact_path, "w")
 f.write(json.dumps(tbc_terraform_manifest_categories))
 f.close()
