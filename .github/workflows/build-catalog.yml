@@ -1,0 +1,57 @@
+name: Build Tenant Workspace Variable Manifest
+on:
+  push:
+    # Publish `main` as Docker `latest` image.
+    branches:
+      - main
+    # Publish `v1.2.3` tags as releases.
+    tags:
+      - v*
+  # Run tests for any PRs.
+  pull_request:
+
+env:
+  PYTHON_VERSION: 3.9
+  MANIFEST_BUILD_SCRIPT_DIR: .github/scripts
+  MANIFEST_BUILD_SCRIPT_NAME: meta_builder.py
+  MANIFEST_ARTIFACT_PATH: dist
+  WORKSPACE_MODULE_DIR: workspace/modules
+jobs:
+  build-workspace-manifest:
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push'
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Set up Python ${{ env.PYTHON_VERSION }}
+        uses: actions/setup-python@v2
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+
+      - name: Build the workspace manifest
+        run: |
+          pip install virtualenv
+          virtualenv venv
+          source venv/bin/activate
+          pip install -r ${{ env.MANIFEST_BUILD_SCRIPT_DIR }}/requirements.txt
+          python ${{ env.MANIFEST_BUILD_SCRIPT_DIR }}/${{ env.MANIFEST_BUILD_SCRIPT_NAME }}
+
+      - name: Upload the module manifest blob
+        uses: BetaHuhn/do-spaces-action@v2
+        with:
+          access_key: ${{ secrets.SPACES_ACCESS_KEY}}
+          secret_key: ${{ secrets.SPACES_SECRET_KEY }}
+          space_name: ${{ secrets.SPACE_NAME }}
+          space_region: ${{ secrets.SPACE_REGION }}
+          source: ${{ env.MANIFEST_ARTIFACT_PATH }}/catalog.json
+
+      - name: Upload the manifest categories blob
+        env:
+          MANIFEST_ARTIFACT_NAME: manifest-categories.json
+        uses: BetaHuhn/do-spaces-action@v2
+        with:
+          access_key: ${{ secrets.SPACES_ACCESS_KEY}}
+          secret_key: ${{ secrets.SPACES_SECRET_KEY }}
+          space_name: ${{ secrets.SPACE_NAME }}
+          space_region: ${{ secrets.SPACE_REGION }}
+          source: ${{ env.MANIFEST_ARTIFACT_PATH }}/catalog-meta.json
