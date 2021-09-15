@@ -3,6 +3,9 @@ import json
 
 modules_path = os.getenv("WORKSPACE_MODULE_DIR")
 
+# This is the list we'll store the different categories
+tbc_terraform_manifest_categories = []
+
 # This is the dict we'll store all the manifests in
 tbc_terraform_manifest = {}
 
@@ -35,6 +38,9 @@ for module_dir in os.listdir(modules_path):
 
     tbc_terraform_manifest[module_manifest['name']] = module_manifest
 
+    category = str(module_manifest['category']).lower()
+    if category not in tbc_terraform_manifest_categories:
+        tbc_terraform_manifest_categories.append(category)
 
 
 # Get the configured artifact name and directory and construct the full path.
@@ -46,4 +52,10 @@ artifact_path = f"{artifact_directory}/{artifact_name}"
 os.makedirs(os.path.dirname(artifact_path), exist_ok=True)
 f = open(artifact_path, "w")
 f.write(json.dumps(tbc_terraform_manifest))
+f.close()
+
+# Make sure the path exists and write the manifest file
+os.makedirs(os.path.dirname(f"{artifact_directory}/manifest-categories.json"), exist_ok=True)
+f = open(artifact_path, "w")
+f.write(json.dumps(tbc_terraform_manifest_categories))
 f.close()

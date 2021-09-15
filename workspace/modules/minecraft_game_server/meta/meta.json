@@ -3,6 +3,12 @@
   "title": "Minecraft: Java Edition server",
   "index": 3,
   "icon": "fa fa-gamepad",
+  "category": "entertainment",
+  "tags": [
+    "minecraft",
+    "gaming",
+    "dedicated servers"
+  ],
   "description": "Prepare for an adventure of limitless possibilities as you build, mine, battle mobs, and explore the ever-changing Minecraft landscape.",
   "outputs": [],
   "variables": [

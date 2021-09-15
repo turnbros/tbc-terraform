@@ -3,6 +3,10 @@
   "title": "Example Module 1",
   "index": 1,
   "icon": "fa fa-first-order",
+  "category": "example",
+  "tags": [
+    "example"
+  ],
   "description": "The first example resource module that just creates null resources.",
   "outputs": [],
   "variables": [

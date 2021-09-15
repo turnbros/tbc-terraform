@@ -37,7 +37,19 @@ jobs:
           pip install -r ${{ env.MANIFEST_BUILD_SCRIPT_DIR }}/requirements.txt
           python ${{ env.MANIFEST_BUILD_SCRIPT_DIR }}/${{ env.MANIFEST_BUILD_SCRIPT_NAME }}
 
-      - uses: BetaHuhn/do-spaces-action@v2
+      - name: Upload the module manifest blob
+        uses: BetaHuhn/do-spaces-action@v2
+        with:
+          access_key: ${{ secrets.SPACES_ACCESS_KEY}}
+          secret_key: ${{ secrets.SPACES_SECRET_KEY }}
+          space_name: ${{ secrets.SPACE_NAME }}
+          space_region: ${{ secrets.SPACE_REGION }}
+          source: ${{ env.MANIFEST_ARTIFACT_PATH }}/${{ env.MANIFEST_ARTIFACT_NAME }}
+
+      - name: Upload the manifest categories blob
+        env:
+          MANIFEST_ARTIFACT_NAME: manifest-categories.json
+        uses: BetaHuhn/do-spaces-action@v2
         with:
           access_key: ${{ secrets.SPACES_ACCESS_KEY}}
           secret_key: ${{ secrets.SPACES_SECRET_KEY }}

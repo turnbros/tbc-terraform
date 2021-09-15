@@ -3,6 +3,10 @@
   "title": "Example Module 2",
   "index": 2,
   "icon": "fa fa-space-shuttle",
+  "category": "example",
+  "tags": [
+    "example"
+  ],
   "description": "The second example resource module that just creates null resources.",
   "outputs": [],
   "variables": [

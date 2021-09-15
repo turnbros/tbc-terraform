@@ -3,6 +3,12 @@
   "title": "Rust Server",
   "index": 3,
   "icon": "fa fa-gamepad",
+  "category": "entertainment",
+  "tags": [
+    "rust",
+    "gaming",
+    "dedicated servers"
+  ],
   "description": "A vanilla Rust server with metrics.",
   "outputs": [],
   "variables": [
